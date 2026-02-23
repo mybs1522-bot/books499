@@ -9,7 +9,7 @@ export const openRazorpayCheckout = async (userData: {
   return new Promise(async (resolve, reject) => {
     try {
       // Create order in the backend
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4242';
+      const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:4242');
       const response = await fetch(`${API_URL}/create-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
